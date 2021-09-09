@@ -13,7 +13,8 @@ public class Authorities implements GrantedAuthority {
     @Id @GeneratedValue
     private Long id;
     private String authority;
-    private CustomSecurityUser user;
+    @ManyToOne
+    private User user;
 
     public Long getId() {
         return id;
@@ -32,12 +33,11 @@ public class Authorities implements GrantedAuthority {
         this.authority = authority;
     }
 
-    @ManyToOne
-    public CustomSecurityUser getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(CustomSecurityUser user) {
+    public void setUser(User user) {
         this.user = user;
     }
 }
